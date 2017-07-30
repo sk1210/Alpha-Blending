@@ -26,7 +26,7 @@ def transparentOverlay(src , overlay , pos=(0,0),scale = 1):
         for j in range(w):
             if x+i >= rows or y+j >= cols:
                 continue
-            alpha = float(overlay[i][j][3]/255) $ read the alpha channel 
+            alpha = float(overlay[i][j][3]/255) # read the alpha channel 
             src[x+i][y+j] = alpha*overlay[i][j][:3]+(1-alpha)*src[x+i][y+j]
     return src
 
