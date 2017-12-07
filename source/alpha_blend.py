@@ -38,8 +38,8 @@ pngImage = cv2.imread("foreground.png" , cv2.IMREAD_UNCHANGED)
 logoImage = cv2.imread("logo.png",cv2.IMREAD_UNCHANGED)
 
 # Overlay transparent images at desired postion(x,y) and Scale. 
-result = transparentOverlay(bImg,pngImage,(0,300),0.7)
-result = transparentOverlay(bImg,logoImage,(400,800),2)
+result = transparentOverlay(bImg,pngImage,(300,0),0.7)
+result = transparentOverlay(bImg,logoImage,(800,400),2)
 
 #Display the result 
 cv2.namedWindow("Result",cv2.WINDOW_NORMAL)
