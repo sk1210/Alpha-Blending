@@ -26,16 +26,16 @@ def transparentOverlay(src , overlay , pos=(0,0),scale = 1):
         for j in range(w):
             if x+i >= rows or y+j >= cols:
                 continue
-            alpha = float(overlay[i][j][3]/255) # read the alpha channel 
+            alpha = float(overlay[i][j][3]python/255.0) # read the alpha channel 
             src[x+i][y+j] = alpha*overlay[i][j][:3]+(1-alpha)*src[x+i][y+j]
     return src
 
-# read all images
-bImg = cv2.imread(backgroundImgName)
+""" ----------- Read all images --------------------"""
+bImg = cv2.imread("background.jpg")
 
 # KeyPoint : Remember to use cv2.IMREAD_UNCHANGED flag to load the image with alpha channel
-pngImage = cv2.imread(pngImageName , cv2.IMREAD_UNCHANGED)
-logoImage = cv2.imread(logo,cv2.IMREAD_UNCHANGED)
+pngImage = cv2.imread("foreground.png" , cv2.IMREAD_UNCHANGED)
+logoImage = cv2.imread("logo.png",cv2.IMREAD_UNCHANGED)
 
 # Overlay transparent images at desired postion(x,y) and Scale. 
 result = transparentOverlay(bImg,pngImage,(0,300),0.7)
